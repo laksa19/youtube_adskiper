@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube Ad Skipper
-// @version      0.1.8
+// @version      0.1.9
 // @description  YouTube Ad Skipper
 // @updateURL    https://github.com/laksa19/youtube_adskiper/raw/master/youtube_adskiper.user.js
 // @downloadURL  https://github.com/laksa19/youtube_adskiper/raw/master/youtube_adskiper.user.js
@@ -13,7 +13,7 @@
 //"top-container"
 (function() {
     'use strict';
-    var intervalAdSkip = 5;
+    var intervalAdSkip = 6;
     var intervalAdClose = 3;
     var elc = [".ytp-ad-skip-button",".ytp-ad-overlay-close-button"];
     var elh = [".ytd-promoted-sparkles-web-renderer","#player-ads",".ytp-ad-overlay-slot"];
