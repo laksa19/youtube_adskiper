@@ -1,0 +1,78 @@
+// ==UserScript==
+// @name         YouTube Ad Skipper
+// @version      0.1.3
+// @description  YouTube Ad Skipper
+// @updateURL    
+// @downloadURL  
+// @author       Laksamadi Guko
+// @match        https://*.youtube.com/*
+// @grant        none
+// @require      https://code.jquery.com/jquery-1.12.4.min.js
+// ==/UserScript==
+
+//"top-container"
+(function() {
+    'use strict';
+    var intervalAdSkip = 5;
+    var intervalAdClose = 1;
+    var elc = [".ytp-ad-skip-button",".ytp-ad-overlay-close-button"];
+    var elh = [".ytd-promoted-sparkles-web-renderer","#player-ads",".ytp-ad-overlay-slot"];
+
+    function hideAd(obj){
+        if($(obj).length > 0){
+            setTimeout(function(){
+                $(obj).hide();
+                changeIt(obj);
+            },intervalAdClose*1000);
+        }
+    }
+    function clickAd(obj){
+        if($(obj).length > 0){
+            setTimeout(function(){
+                $(obj).click();
+                changeIt(obj);
+            },intervalAdSkip*1000);
+        }
+    }
+    function changeIt(obj){
+        if(obj.substring(0,1) == "."){
+            $(obj).removeClass(obj.split(".")[1]);
+            $(obj).addClass(obj.split(".")[1]+"_");
+        }else if(obj.substring(0,1) == "#"){
+            $(obj).attr("id",obj.split("#")[1]+"_");
+        }
+    }
+    //setInterval(function(){
+     //   $.each( elc, function( i, el ){
+     //       clickAd(el);
+    //    });
+     //   $.each( elh, function( i, el ){
+     //       hideAd(el);
+    //    });
+    //},500)
+
+    // https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (!mutation.addedNodes) return
+
+            for (var i = 0; i < mutation.addedNodes.length; i++) {
+                // do things to your newly added nodes here
+                $.each( elc, function( i, el ){
+                    clickAd(el);
+                });
+                $.each( elh, function( i, el ){
+                    hideAd(el);
+                });
+                var node = mutation.addedNodes[i]
+                }
+        })
+    })
+
+    observer.observe(document.body, {
+        childList: true
+        , subtree: true
+        , attributes: false
+        , characterData: false
+    })
+})();
