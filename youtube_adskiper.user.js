@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name         YouTube Ad Skipper
-// @version      0.1.9
+// @version      0.1.10
 // @description  YouTube Ad Skipper
+// @namespace    https://github.com/laksa19/youtube_adskiper
 // @updateURL    https://github.com/laksa19/youtube_adskiper/raw/master/youtube_adskiper.user.js
 // @downloadURL  https://github.com/laksa19/youtube_adskiper/raw/master/youtube_adskiper.user.js
 // @author       Laksamadi Guko
@@ -13,8 +14,8 @@
 //"top-container"
 (function() {
     'use strict';
-    var intervalAdSkip = 6;
-    var intervalAdClose = 3;
+    var timeoutAdSkip = 6; // video ad
+    var timeoutAdClose = 3; // banner ad
     var elc = [".ytp-ad-skip-button",".ytp-ad-overlay-close-button"];
     var elh = [".ytd-promoted-sparkles-web-renderer","#player-ads",".ytp-ad-overlay-slot"];
 
@@ -23,7 +24,7 @@
             setTimeout(function(){
                 $(obj).hide();
                 changeIt(obj);
-            },intervalAdClose*1000);
+            },timeoutAdClose*1000);
         }
     }
     function clickAd(obj){
@@ -31,7 +32,7 @@
             setTimeout(function(){
                 $(obj).click();
                 changeIt(obj);
-            },intervalAdSkip*1000);
+            },timeoutAdSkip*1000);
         }
     }
     function changeIt(obj){
