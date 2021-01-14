@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube Ad Skipper
-// @version      0.1.10
+// @version      0.1.12
 // @description  YouTube Ad Skipper
 // @namespace    https://github.com/laksa19/youtube_adskiper
 // @updateURL    https://github.com/laksa19/youtube_adskiper/raw/master/youtube_adskiper.user.js
