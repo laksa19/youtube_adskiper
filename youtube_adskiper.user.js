@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube Ad Skipper
-// @version      0.1.15
+// @version      0.1.17
 // @description  YouTube Ad Skipper
 // @namespace    https://laksa19.github.io/youtube_adskiper/
 // @updateURL    https://github.com/laksa19/youtube_adskiper/raw/master/youtube_adskiper.user.js
@@ -11,13 +11,12 @@
 // @require      https://code.jquery.com/jquery-1.12.4.min.js
 // ==/UserScript==
 
-//"top-container"
 (function() {
     'use strict';
     var timeoutAdSkip = 6; // video ad
     var timeoutAdClose = 3; // banner ad
     var elc = [".ytp-ad-skip-button",".ytp-ad-overlay-close-button"];
-    var elh = [".ytd-promoted-sparkles-web-renderer","#player-ads",".ytp-ad-overlay-slot","ytd-player-legacy-desktop-watch-ads-renderer","ytd-display-ad-renderer"];
+    var elh = [".ytd-promoted-sparkles-web-renderer","#player-ads",".ytp-ad-overlay-slot",".ytd-player-legacy-desktop-watch-ads-renderer",".ytd-display-ad-renderer","#masthead-ad"];
 
     function hideAd(obj){
         if($(obj).length > 0){
