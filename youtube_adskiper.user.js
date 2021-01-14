@@ -17,7 +17,7 @@
     var timeoutAdSkip = 6; // video ad
     var timeoutAdClose = 3; // banner ad
     var elc = [".ytp-ad-skip-button",".ytp-ad-overlay-close-button"];
-    var elh = [".ytd-promoted-sparkles-web-renderer","#player-ads",".ytp-ad-overlay-slot","ytd-player-legacy-desktop-watch-ads-renderer"];
+    var elh = [".ytd-promoted-sparkles-web-renderer","#player-ads",".ytp-ad-overlay-slot","ytd-player-legacy-desktop-watch-ads-renderer","ytd-display-ad-renderer"];
 
     function hideAd(obj){
         if($(obj).length > 0){
